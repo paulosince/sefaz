@@ -15,7 +15,8 @@ export function subjectsForArea(content, area) {
 
 export function topicsForArea(content, area) {
   const ids = new Set(subjectsForArea(content, area).map(s => s.id));
-  return (content.topics || []).filter(t => ids.has(t.subjectId));
+  // Seções (agrupadores) não entram: só os itens do edital.
+  return (content.topics || []).filter(t => ids.has(t.subjectId) && !t.section);
 }
 
 /** Map topicId -> {share, count, basis} a partir de content.incidence (só verificada). */

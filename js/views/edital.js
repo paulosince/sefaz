@@ -45,7 +45,7 @@ export async function edital(ctx, route, root) {
       <h2>${sid === '_' ? 'Disposições gerais' : subject(sid)?.name || sid}</h2>
       ${list.map(f => html`<details class="frag"${query ? ' open' : ''}>
         <summary><span>${f.title || f.text.slice(0, 90) + (f.text.length > 90 ? '…' : '')}</span><span class="muted small">p. ${f.page}</span></summary>
-        <div class="body">${raw(highlight(f.text, query))}<p class="prov">Fonte: edital, página ${f.page}${f.id ? ` · trecho ${f.id}` : ''}</p></div>
+        <div class="body">${raw(highlight(f.text, query))}${f.note ? html`<p class="notice small">${f.note}</p>` : ''}<p class="prov">Fonte: edital, página ${f.page}${f.id ? ` · trecho ${f.id}` : ''}</p></div>
       </details>`)}`)}`;
 
   root.querySelector('#search').onsubmit = e => {

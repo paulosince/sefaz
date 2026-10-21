@@ -121,7 +121,8 @@ async function executar(ctx, run, root, alive) {
     for (const it of items.filter(i => i.chosen)) {
       await ctx.addAnswer({ question_id: it.question_id, chosen: it.chosen, correct: it.correct, topic_ids: it.topic_ids, subject_id: it.subject_id, source: 'simulado', session_id: run.id });
     }
-    const score = scoreAttempt(content().exam && content().exam.rules, ctx.profile.area, items);
+    const complete = run.kind.startsWith('prova:') && !(run.config.shortfall || []).length;
+    const score = scoreAttempt(content().exam && content().exam.rules, ctx.profile.area, items, { complete });
     await ctx.saveSimulado({ id: run.id, kind: run.kind, config: run.config, started_at: run.startedAt, finished_at: new Date().toISOString(), items, score });
     await ctx.setKV(RUN_KEY, null);
     ctx.setResume(`#/simulados/resultado/${run.id}`, 'Resultado do último simulado');
@@ -204,7 +205,7 @@ async function resultado(ctx, id, root) {
     </div>
     ${sim.config.shortfall && sim.config.shortfall.length ? html`<div class="notice" style="margin-top:12px">Banco insuficiente para a composição oficial em:
       ${sim.config.shortfall.map(s => `${subject(s.subjectId)?.name || s.subjectId} (${s.have}/${s.need})`).join('; ')}. A pontuação considera só as questões aplicadas.</div>` : ''}
-    ${sim.score && sim.score.habilitacao && sim.score.habilitacao.length ? html`<h2>Critérios de habilitação</h2><ul>${sim.score.habilitacao.map(c => html`<li>${c.text || c.type}: ${c.ok == null ? 'não avaliado' : c.ok ? 'atingido' : 'não atingido'}${c.actual != null ? ` (${fmtPct(c.actual)})` : ''}</li>`)}</ul>` : ''}
+    ${sim.score && sim.score.habilitacao && sim.score.habilitacao.some(c => c.ok != null) ? html`<h2>Critérios de habilitação</h2><ul>${sim.score.habilitacao.map(c => html`<li>${c.text || c.type}: ${c.ok == null ? 'não avaliado' : c.ok ? 'atingido' : 'não atingido'}${c.actual != null ? ` (${fmtPct(c.actual)})` : ''}</li>`)}</ul>` : ''}
     <h2>Por disciplina</h2>
     <div class="card table-wrap"><table class="data"><thead><tr><th>Disciplina</th><th>Acertos</th><th>Em branco</th></tr></thead><tbody>
       ${[...bySubj.entries()].map(([sid, e]) => html`<tr><td>${subject(sid)?.name || sid}</td><td>${e.ok}/${e.n} (${fmtPct(e.ok / e.n)})</td><td>${e.blank}</td></tr>`)}

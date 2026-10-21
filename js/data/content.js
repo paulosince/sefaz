@@ -87,7 +87,7 @@ export function fragmentsFor({ area, query } = {}) {
   const allowed = area ? new Set(subjectsFor(area).map(s => s.id)) : null;
   const q = normalize(query);
   return current.fragments
-    .filter(f => !allowed || !f.subjectId || allowed.has(f.subjectId))
+    .filter(f => !allowed || (f.subjectId && allowed.has(f.subjectId)))
     .filter(f => !q || normalize(f.text).includes(q))
     .sort((a, b) => (a.page - b.page) || (a.seq - b.seq));
 }

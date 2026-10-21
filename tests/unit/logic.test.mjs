@@ -81,7 +81,8 @@ test('pontuação usa regras oficiais por área e respeita pesos', () => {
   ]);
   assert.equal(s.total, 3);
   assert.equal(s.max, 12);
-  assert.equal(s.habilitacao[0].ok, false);
+  assert.equal(s.habilitacao[0].ok, null, 'treino parcial não avalia habilitação');
+  assert.equal(scoreAttempt(rules, 'C03', [{ subject_id: 's-comum-1', correct: true }], { complete: true }).habilitacao[0].ok, false);
   assert.equal(scoreAttempt(null, 'C03', []), null);
 });
 
@@ -127,4 +128,38 @@ test('estimativa de pontos só existe com regras', () => {
   assert.equal(estimateScore({ ...fixture, exam: null }, 'C03', new Map()), null);
   const e = estimateScore(fixture, 'C03', new Map([['s-ti-1', { mastery: 0.5 }]]));
   assert.deepEqual(e, { total: 4, max: 12 });
+});
+
+test('regras oficiais do edital: pontos, mínimos e P2 por área', async () => {
+  const edital = JSON.parse(readFileSync(new URL('../../data/edital-2026.json', import.meta.url)));
+  const rules = edital.exam.rules;
+  const p1 = rules.provas.find(p => p.id === 'P1');
+  assert.equal(p1.subjects.reduce((s, x) => s + x.questions * x.weight, 0), 112);
+  assert.equal(p1.subjects.length, 10);
+  assert.equal(subjectPoints(rules, 'C03', 'p2-c03'), 120);
+  assert.equal(subjectPoints(rules, 'A01', 'p2-c03'), null);
+  assert.equal(subjectPoints(rules, 'A01', 'p1-flu'), 16);
+  // P1 inteira certa e P2 com 16 acertos: 112 + 48 = 160 ≥ 116, P2 = 48 ≥ 48.
+  const answers = [
+    ...p1.subjects.flatMap(s => Array.from({ length: s.questions }, () => ({ subject_id: s.subjectId, correct: true }))),
+    ...Array.from({ length: 40 }, (_, i) => ({ subject_id: 'p2-a01', correct: i < 16 })),
+  ];
+  const sc = scoreAttempt(rules, 'A01', answers, { complete: true });
+  assert.equal(sc.total, 160);
+  assert.equal(sc.max, 232);
+  const byType = Object.fromEntries(sc.habilitacao.map(c => [c.prova || c.type, c.ok]));
+  assert.deepEqual(byType, { P1: true, P2: true, P3: null, min_points_objetivas: true });
+  const sc2 = scoreAttempt(rules, 'A01', answers.map(a => a.subject_id === 'p2-a01' ? { ...a, correct: false } : a), { complete: true });
+  assert.equal(sc2.habilitacao.find(c => c.prova === 'P2').ok, false);
+});
+
+test('conteúdo do edital: disciplinas por área e itens com página', () => {
+  const edital = JSON.parse(readFileSync(new URL('../../data/edital-2026.json', import.meta.url)));
+  const ids = s => edital.subjects.filter(x => x.areas.includes(s)).map(x => x.id);
+  assert.ok(ids('C03').includes('p2-c03') && !ids('C03').includes('p2-a01'));
+  assert.ok(ids('A01').includes('p2-a01') && !ids('A01').includes('p2-c03'));
+  for (const f of edital.fragments) assert.ok(Number.isInteger(f.page) && f.page >= 1 && f.page <= 40, f.id);
+  const items = edital.fragments.filter(f => f.subjectId);
+  assert.ok(items.every(f => f.page >= 31 && f.page <= 36));
+  assert.ok(!items.some(f => /Contabilidade de Custos|B02/.test(f.text)), 'conteúdo da B02 não pode entrar');
 });

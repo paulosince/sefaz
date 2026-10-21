@@ -1,6 +1,6 @@
 // Service Worker: guarda o app e o conteúdo para estudar sem internet.
 // Ao alterar arquivos do app, incremente CACHE_VERSION.
-const CACHE_VERSION = 'rumo-v1';
+const CACHE_VERSION = 'rumo-v2';
 const APP_SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/styles.css',
   'js/app.js', 'js/config.js',

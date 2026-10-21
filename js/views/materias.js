@@ -29,7 +29,7 @@ export async function materias(ctx, route, root) {
           <p class="muted small" style="margin:0 0 6px">Domínio do conteúdo: ${masteryLabel(m)}${m ? ` (${Math.round(m.mastery * 100)}%)` : ''}</p>
           ${bar(m ? m.mastery : 0)}
           <div class="row" style="margin-top:12px">
-            <a class="btn small" href="#/materias/${encodeURIComponent(s.id)}">Tópicos</a>
+            ${s.prova === 'P3' ? html`<a class="btn small" href="#/discursiva">Treinar estudo de caso</a>` : html`<a class="btn small" href="#/materias/${encodeURIComponent(s.id)}">Tópicos</a>`}
             ${nq ? html`<a class="btn small ghost" href="#/estudar?subject=${encodeURIComponent(s.id)}">Praticar →</a>` : ''}
           </div>
         </div>`;
@@ -55,7 +55,7 @@ async function materia(ctx, route, root) {
       <p><a href="#/materias/${encodeURIComponent(s.id)}">← ${s.name}</a></p>
       <h1>${t.code ? `${t.code} ` : ''}${t.title}</h1>
       <p class="lead">${masteryLabel(mastery.get(t.id))} ${editalRef(t)}</p>
-      ${frags.length ? html`<h2>Texto do edital</h2><div class="card">${frags.map(f => html`<p style="white-space:pre-line;margin-top:0">${f.text}</p><p class="prov">Edital, p. ${f.page}</p>`)}</div>` : ''}
+      ${frags.length ? html`<h2>Texto do edital</h2><div class="card">${frags.map(f => html`<p style="white-space:pre-line;margin-top:0">${f.text}</p>${f.note ? html`<p class="notice small">${f.note}</p>` : ''}<p class="prov">Edital, p. ${f.page}</p>`)}</div>` : ''}
       <h2>Estudo</h2>
       ${lessons.length
         ? lessons.map(l => html`<article class="card" style="margin-bottom:12px"><h3 style="margin-top:0">${l.title}</h3>${md(l.body)}<p class="prov">${provenance(l.provenance)}</p></article>`)
