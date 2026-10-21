@@ -1,0 +1,15 @@
+{
+  "version": null,
+  "generatedAt": null,
+  "note": "Pacote vazio. Gere o conteúdo oficial a partir do Neon com: DATABASE_URL=... node scripts/export-content.mjs",
+  "subjects": [],
+  "topics": [],
+  "fragments": [],
+  "questions": [],
+  "flashcards": [],
+  "mindmaps": [],
+  "lessons": [],
+  "incidence": [],
+  "discursive": [],
+  "changes": []
+}

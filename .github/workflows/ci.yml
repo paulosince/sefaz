@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_PASSWORD: postgres }
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+      - run: npm test
+      - name: Esquema do banco (RLS, idempotência)
+        env: { PGPASSWORD: postgres }
+        run: |
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 -q -f tests/db/neon_shim.sql -f db/001_user_data.sql -f db/001_user_data.sql -f tests/db/rls_test.sql
+      - run: npx playwright install --with-deps chromium
+      - run: npm i -g http-server@14.1.1
+      - run: npx playwright test

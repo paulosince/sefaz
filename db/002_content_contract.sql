@@ -1,0 +1,39 @@
+-- Contrato de leitura do conteúdo oficial.
+--
+-- O conteúdo (edital em fragmentos, tópicos, questões...) já está no Neon, em
+-- tabelas criadas antes deste repositório. Em vez de mexer nelas, o exportador
+-- (scripts/export-content.mjs) lê só estas VIEWS. Cada view deve ser escrita
+-- sobre as tabelas reais depois de inspecioná-las com:
+--
+--   DATABASE_URL=... node scripts/export-content.mjs --inspect
+--
+-- Abaixo está a forma (nomes e tipos de colunas) que o exportador espera.
+-- Views ausentes são tratadas como vazias: o app mostra "conteúdo não
+-- carregado" em vez de preencher com dados inventados.
+--
+-- content_subjects    (id text, prova text, name text, areas text[], ord int)
+--                     areas: {'A01','C03'} para comuns; {'C03'} ou {'A01'} para específicas.
+-- content_topics      (id text, subject_id text, parent_id text, code text, title text, ord int,
+--                      pages int[], fragment_ids text[], effort numeric)
+-- content_fragments   (id text, page int, seq int, subject_id text, topic_id text, title text, text text)
+-- content_questions   (id text, subject_id text, topic_ids text[], stem text, options jsonb,
+--                      answer text, explanation text, provenance jsonb, status text)
+--                     options: [{"key":"A","text":"..."}, ...]
+--                     provenance: {"kind":"fcc","org":"FCC","exam":"...","year":2023,"number":12,"url":"..."}
+-- content_flashcards  (id text, topic_id text, subject_id text, front text, back text, provenance jsonb, status text)
+-- content_lessons     (id text, topic_id text, title text, body text, provenance jsonb, status text)
+-- content_mindmaps    (id text, subject_id text, root jsonb, status text)
+-- content_incidence   (topic_id text, count int, exams text[], verified boolean)
+-- content_discursive  (id text, title text, prompt text, minutes int, criteria jsonb, model_answer text,
+--                      areas text[], provenance jsonb, status text)
+-- content_exam        (key text, value jsonb)
+--                     chaves: 'date' ("2026-12-13"), 'areas' ({"A01":{"vagas":20},...}),
+--                     'rules' (provas/pesos/habilitação), 'schedule', 'career', 'source'
+-- content_changes     (date date, title text, impact text)
+--
+-- Exemplo (ilustrativo; ajustar aos nomes reais das tabelas):
+--
+-- create or replace view content_fragments as
+--   select f.id::text, f.pagina as page, f.ordem as seq, f.disciplina_id::text as subject_id,
+--          null::text as topic_id, null::text as title, f.texto as text
+--   from edital_fragmentos f;

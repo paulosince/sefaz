@@ -1,0 +1,1118 @@
+{
+ "version": "fixture-1",
+ "generatedAt": "2026-10-20T00:00:00Z",
+ "source": {
+  "edital": {
+   "title": "Edital fictício de teste"
+  }
+ },
+ "exam": {
+  "date": "2026-12-13",
+  "areas": {
+   "A01": {
+    "vagas": 20
+   },
+   "C03": {
+    "vagas": 20
+   }
+  },
+  "rules": {
+   "provas": [
+    {
+     "id": "P1",
+     "name": "Conhecimentos gerais (teste)",
+     "kind": "objetiva",
+     "durationMin": 30,
+     "subjects": [
+      {
+       "subjectId": "s-comum-1",
+       "name": "Disciplina Comum Teste",
+       "questions": 4,
+       "weight": 1
+      }
+     ]
+    },
+    {
+     "id": "P2",
+     "name": "Conhecimentos específicos (teste)",
+     "kind": "objetiva",
+     "durationMin": 30,
+     "areas": [
+      "C03"
+     ],
+     "subjects": [
+      {
+       "subjectId": "s-ti-1",
+       "name": "Disciplina TI Teste",
+       "questions": 4,
+       "weight": 2
+      }
+     ]
+    },
+    {
+     "id": "P2",
+     "name": "Conhecimentos específicos (teste)",
+     "kind": "objetiva",
+     "durationMin": 30,
+     "areas": [
+      "A01"
+     ],
+     "subjects": [
+      {
+       "subjectId": "s-orc-1",
+       "name": "Disciplina Orçamento Teste",
+       "questions": 4,
+       "weight": 2
+      }
+     ]
+    }
+   ],
+   "habilitacao": [
+    {
+     "type": "min_fraction_total",
+     "value": 0.5,
+     "text": "Critério fictício: 50% do total"
+    }
+   ]
+  },
+  "schedule": [
+   {
+    "event": "Prova (teste)",
+    "date": "2026-12-13",
+    "page": 1
+   }
+  ]
+ },
+ "subjects": [
+  {
+   "id": "s-comum-1",
+   "prova": "P1",
+   "name": "Disciplina Comum Teste",
+   "areas": [
+    "A01",
+    "C03"
+   ],
+   "order": 1
+  },
+  {
+   "id": "s-ti-1",
+   "prova": "P2",
+   "name": "Disciplina TI Teste",
+   "areas": [
+    "C03"
+   ],
+   "order": 2
+  },
+  {
+   "id": "s-orc-1",
+   "prova": "P2",
+   "name": "Disciplina Orçamento Teste",
+   "areas": [
+    "A01"
+   ],
+   "order": 3
+  }
+ ],
+ "topics": [
+  {
+   "id": "s-comum-1-t1",
+   "subjectId": "s-comum-1",
+   "code": "1.",
+   "title": "Tópico fictício 1 de Disciplina Comum Teste",
+   "order": 1,
+   "pages": [
+    32
+   ],
+   "fragmentIds": [
+    "f-s-comum-1-1"
+   ]
+  },
+  {
+   "id": "s-comum-1-t2",
+   "subjectId": "s-comum-1",
+   "code": "2.",
+   "title": "Tópico fictício 2 de Disciplina Comum Teste",
+   "order": 2,
+   "pages": [
+    33
+   ],
+   "fragmentIds": [
+    "f-s-comum-1-2"
+   ]
+  },
+  {
+   "id": "s-comum-1-t3",
+   "subjectId": "s-comum-1",
+   "code": "3.",
+   "title": "Tópico fictício 3 de Disciplina Comum Teste",
+   "order": 3,
+   "pages": [
+    34
+   ],
+   "fragmentIds": [
+    "f-s-comum-1-3"
+   ]
+  },
+  {
+   "id": "s-ti-1-t1",
+   "subjectId": "s-ti-1",
+   "code": "1.",
+   "title": "Tópico fictício 1 de Disciplina TI Teste",
+   "order": 1,
+   "pages": [
+    32
+   ],
+   "fragmentIds": [
+    "f-s-ti-1-1"
+   ]
+  },
+  {
+   "id": "s-ti-1-t2",
+   "subjectId": "s-ti-1",
+   "code": "2.",
+   "title": "Tópico fictício 2 de Disciplina TI Teste",
+   "order": 2,
+   "pages": [
+    33
+   ],
+   "fragmentIds": [
+    "f-s-ti-1-2"
+   ]
+  },
+  {
+   "id": "s-ti-1-t3",
+   "subjectId": "s-ti-1",
+   "code": "3.",
+   "title": "Tópico fictício 3 de Disciplina TI Teste",
+   "order": 3,
+   "pages": [
+    34
+   ],
+   "fragmentIds": [
+    "f-s-ti-1-3"
+   ]
+  },
+  {
+   "id": "s-orc-1-t1",
+   "subjectId": "s-orc-1",
+   "code": "1.",
+   "title": "Tópico fictício 1 de Disciplina Orçamento Teste",
+   "order": 1,
+   "pages": [
+    32
+   ],
+   "fragmentIds": [
+    "f-s-orc-1-1"
+   ]
+  },
+  {
+   "id": "s-orc-1-t2",
+   "subjectId": "s-orc-1",
+   "code": "2.",
+   "title": "Tópico fictício 2 de Disciplina Orçamento Teste",
+   "order": 2,
+   "pages": [
+    33
+   ],
+   "fragmentIds": [
+    "f-s-orc-1-2"
+   ]
+  },
+  {
+   "id": "s-orc-1-t3",
+   "subjectId": "s-orc-1",
+   "code": "3.",
+   "title": "Tópico fictício 3 de Disciplina Orçamento Teste",
+   "order": 3,
+   "pages": [
+    34
+   ],
+   "fragmentIds": [
+    "f-s-orc-1-3"
+   ]
+  }
+ ],
+ "fragments": [
+  {
+   "id": "f-s-comum-1-1",
+   "page": 32,
+   "seq": 1,
+   "subjectId": "s-comum-1",
+   "topicId": "s-comum-1-t1",
+   "text": "Texto fictício do edital para Tópico fictício 1 de Disciplina Comum Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-comum-1-2",
+   "page": 33,
+   "seq": 2,
+   "subjectId": "s-comum-1",
+   "topicId": "s-comum-1-t2",
+   "text": "Texto fictício do edital para Tópico fictício 2 de Disciplina Comum Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-comum-1-3",
+   "page": 34,
+   "seq": 3,
+   "subjectId": "s-comum-1",
+   "topicId": "s-comum-1-t3",
+   "text": "Texto fictício do edital para Tópico fictício 3 de Disciplina Comum Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-ti-1-1",
+   "page": 32,
+   "seq": 1,
+   "subjectId": "s-ti-1",
+   "topicId": "s-ti-1-t1",
+   "text": "Texto fictício do edital para Tópico fictício 1 de Disciplina TI Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-ti-1-2",
+   "page": 33,
+   "seq": 2,
+   "subjectId": "s-ti-1",
+   "topicId": "s-ti-1-t2",
+   "text": "Texto fictício do edital para Tópico fictício 2 de Disciplina TI Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-ti-1-3",
+   "page": 34,
+   "seq": 3,
+   "subjectId": "s-ti-1",
+   "topicId": "s-ti-1-t3",
+   "text": "Texto fictício do edital para Tópico fictício 3 de Disciplina TI Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-orc-1-1",
+   "page": 32,
+   "seq": 1,
+   "subjectId": "s-orc-1",
+   "topicId": "s-orc-1-t1",
+   "text": "Texto fictício do edital para Tópico fictício 1 de Disciplina Orçamento Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-orc-1-2",
+   "page": 33,
+   "seq": 2,
+   "subjectId": "s-orc-1",
+   "topicId": "s-orc-1-t2",
+   "text": "Texto fictício do edital para Tópico fictício 2 de Disciplina Orçamento Teste. Palavra-chave orçamento."
+  },
+  {
+   "id": "f-s-orc-1-3",
+   "page": 34,
+   "seq": 3,
+   "subjectId": "s-orc-1",
+   "topicId": "s-orc-1-t3",
+   "text": "Texto fictício do edital para Tópico fictício 3 de Disciplina Orçamento Teste. Palavra-chave orçamento."
+  }
+ ],
+ "questions": [
+  {
+   "id": "q1",
+   "subjectId": "s-comum-1",
+   "topicIds": [
+    "s-comum-1-t1"
+   ],
+   "stem": "Questão fictícia de teste 1 sobre Tópico fictício 1 de Disciplina Comum Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 1"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 1"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 1"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 1"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 1"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 1.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q2",
+   "subjectId": "s-comum-1",
+   "topicIds": [
+    "s-comum-1-t1"
+   ],
+   "stem": "Questão fictícia de teste 2 sobre Tópico fictício 1 de Disciplina Comum Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 2"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 2"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 2"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 2"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 2"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 2.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q3",
+   "subjectId": "s-comum-1",
+   "topicIds": [
+    "s-comum-1-t2"
+   ],
+   "stem": "Questão fictícia de teste 3 sobre Tópico fictício 2 de Disciplina Comum Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 3"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 3"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 3"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 3"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 3"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 3.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q4",
+   "subjectId": "s-comum-1",
+   "topicIds": [
+    "s-comum-1-t2"
+   ],
+   "stem": "Questão fictícia de teste 4 sobre Tópico fictício 2 de Disciplina Comum Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 4"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 4"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 4"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 4"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 4"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 4.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q5",
+   "subjectId": "s-comum-1",
+   "topicIds": [
+    "s-comum-1-t3"
+   ],
+   "stem": "Questão fictícia de teste 5 sobre Tópico fictício 3 de Disciplina Comum Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 5"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 5"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 5"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 5"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 5"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 5.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q6",
+   "subjectId": "s-comum-1",
+   "topicIds": [
+    "s-comum-1-t3"
+   ],
+   "stem": "Questão fictícia de teste 6 sobre Tópico fictício 3 de Disciplina Comum Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 6"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 6"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 6"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 6"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 6"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 6.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q7",
+   "subjectId": "s-ti-1",
+   "topicIds": [
+    "s-ti-1-t1"
+   ],
+   "stem": "Questão fictícia de teste 7 sobre Tópico fictício 1 de Disciplina TI Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 7"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 7"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 7"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 7"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 7"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 7.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q8",
+   "subjectId": "s-ti-1",
+   "topicIds": [
+    "s-ti-1-t1"
+   ],
+   "stem": "Questão fictícia de teste 8 sobre Tópico fictício 1 de Disciplina TI Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 8"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 8"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 8"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 8"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 8"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 8.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q9",
+   "subjectId": "s-ti-1",
+   "topicIds": [
+    "s-ti-1-t2"
+   ],
+   "stem": "Questão fictícia de teste 9 sobre Tópico fictício 2 de Disciplina TI Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 9"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 9"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 9"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 9"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 9"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 9.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q10",
+   "subjectId": "s-ti-1",
+   "topicIds": [
+    "s-ti-1-t2"
+   ],
+   "stem": "Questão fictícia de teste 10 sobre Tópico fictício 2 de Disciplina TI Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 10"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 10"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 10"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 10"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 10"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 10.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q11",
+   "subjectId": "s-ti-1",
+   "topicIds": [
+    "s-ti-1-t3"
+   ],
+   "stem": "Questão fictícia de teste 11 sobre Tópico fictício 3 de Disciplina TI Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 11"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 11"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 11"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 11"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 11"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 11.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q12",
+   "subjectId": "s-ti-1",
+   "topicIds": [
+    "s-ti-1-t3"
+   ],
+   "stem": "Questão fictícia de teste 12 sobre Tópico fictício 3 de Disciplina TI Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 12"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 12"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 12"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 12"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 12"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 12.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q13",
+   "subjectId": "s-orc-1",
+   "topicIds": [
+    "s-orc-1-t1"
+   ],
+   "stem": "Questão fictícia de teste 13 sobre Tópico fictício 1 de Disciplina Orçamento Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 13"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 13"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 13"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 13"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 13"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 13.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q14",
+   "subjectId": "s-orc-1",
+   "topicIds": [
+    "s-orc-1-t1"
+   ],
+   "stem": "Questão fictícia de teste 14 sobre Tópico fictício 1 de Disciplina Orçamento Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 14"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 14"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 14"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 14"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 14"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 14.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q15",
+   "subjectId": "s-orc-1",
+   "topicIds": [
+    "s-orc-1-t2"
+   ],
+   "stem": "Questão fictícia de teste 15 sobre Tópico fictício 2 de Disciplina Orçamento Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 15"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 15"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 15"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 15"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 15"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 15.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q16",
+   "subjectId": "s-orc-1",
+   "topicIds": [
+    "s-orc-1-t2"
+   ],
+   "stem": "Questão fictícia de teste 16 sobre Tópico fictício 2 de Disciplina Orçamento Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 16"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 16"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 16"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 16"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 16"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 16.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q17",
+   "subjectId": "s-orc-1",
+   "topicIds": [
+    "s-orc-1-t3"
+   ],
+   "stem": "Questão fictícia de teste 17 sobre Tópico fictício 3 de Disciplina Orçamento Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 17"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 17"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 17"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 17"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 17"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 17.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  },
+  {
+   "id": "q18",
+   "subjectId": "s-orc-1",
+   "topicIds": [
+    "s-orc-1-t3"
+   ],
+   "stem": "Questão fictícia de teste 18 sobre Tópico fictício 3 de Disciplina Orçamento Teste?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Alternativa A da questão 18"
+    },
+    {
+     "key": "B",
+     "text": "Alternativa B da questão 18"
+    },
+    {
+     "key": "C",
+     "text": "Alternativa C da questão 18"
+    },
+    {
+     "key": "D",
+     "text": "Alternativa D da questão 18"
+    },
+    {
+     "key": "E",
+     "text": "Alternativa E da questão 18"
+    }
+   ],
+   "answer": "A",
+   "explanation": "A alternativa **A** é a correta na questão fictícia 18.",
+   "provenance": {
+    "kind": "teste",
+    "note": "dado fictício de teste"
+   },
+   "status": "published"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "c0",
+   "topicId": "s-comum-1-t1",
+   "subjectId": "s-comum-1",
+   "front": "Frente fictícia 0",
+   "back": "Verso fictício 0",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c1",
+   "topicId": "s-comum-1-t2",
+   "subjectId": "s-comum-1",
+   "front": "Frente fictícia 1",
+   "back": "Verso fictício 1",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c2",
+   "topicId": "s-comum-1-t3",
+   "subjectId": "s-comum-1",
+   "front": "Frente fictícia 2",
+   "back": "Verso fictício 2",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c3",
+   "topicId": "s-ti-1-t1",
+   "subjectId": "s-ti-1",
+   "front": "Frente fictícia 3",
+   "back": "Verso fictício 3",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c4",
+   "topicId": "s-ti-1-t2",
+   "subjectId": "s-ti-1",
+   "front": "Frente fictícia 4",
+   "back": "Verso fictício 4",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c5",
+   "topicId": "s-ti-1-t3",
+   "subjectId": "s-ti-1",
+   "front": "Frente fictícia 5",
+   "back": "Verso fictício 5",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c6",
+   "topicId": "s-orc-1-t1",
+   "subjectId": "s-orc-1",
+   "front": "Frente fictícia 6",
+   "back": "Verso fictício 6",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c7",
+   "topicId": "s-orc-1-t2",
+   "subjectId": "s-orc-1",
+   "front": "Frente fictícia 7",
+   "back": "Verso fictício 7",
+   "provenance": {
+    "kind": "teste"
+   }
+  },
+  {
+   "id": "c8",
+   "topicId": "s-orc-1-t3",
+   "subjectId": "s-orc-1",
+   "front": "Frente fictícia 8",
+   "back": "Verso fictício 8",
+   "provenance": {
+    "kind": "teste"
+   }
+  }
+ ],
+ "mindmaps": [],
+ "lessons": [
+  {
+   "id": "l1",
+   "topicId": "s-comum-1-t1",
+   "title": "Aula fictícia",
+   "body": "Texto **fictício** de aula.",
+   "provenance": {
+    "kind": "teste"
+   }
+  }
+ ],
+ "incidence": [
+  {
+   "topicId": "s-comum-1-t1",
+   "count": 5,
+   "exams": [
+    "teste-2020"
+   ],
+   "verified": true
+  },
+  {
+   "topicId": "s-comum-1-t2",
+   "count": 1,
+   "exams": [
+    "teste-2020"
+   ],
+   "verified": true
+  }
+ ],
+ "discursive": [
+  {
+   "id": "d1",
+   "title": "Estudo de caso fictício",
+   "prompt": "Escreva sobre um caso fictício.",
+   "minutes": 60,
+   "criteria": [
+    {
+     "label": "Critério A",
+     "points": 5
+    },
+    {
+     "label": "Critério B",
+     "points": 5
+    }
+   ]
+  }
+ ],
+ "changes": []
+}
