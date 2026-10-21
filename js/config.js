@@ -2,8 +2,9 @@
 // Data API são endpoints públicos; o acesso aos dados é controlado por JWT + RLS.
 // Deixe em branco para usar o app só no modo local (sem login e sem sincronização).
 export const CONFIG = {
-  neonAuthUrl: '',   // ex.: https://ep-xxxx.neonauth.<região>.aws.neon.tech/neondb/auth
-  dataApiUrl: '',    // ex.: https://ep-xxxx.apirest.<região>.aws.neon.tech/neondb/rest/v1
+  // Projeto Neon sefaz-estudos-2026 (hidden-bar-42195602), branch main.
+  neonAuthUrl: 'https://ep-still-feather-b8lo48ya.neonauth.c-14.us-east-1.aws.neon.tech/neondb/auth',
+  dataApiUrl: 'https://ep-still-feather-b8lo48ya.apirest.c-14.us-east-1.aws.neon.tech/neondb/rest/v1',
   contentUrl: 'data/content.json',
 };
 

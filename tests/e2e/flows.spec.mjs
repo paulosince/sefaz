@@ -4,8 +4,14 @@ import { readFileSync } from 'node:fs';
 
 const fixture = readFileSync(new URL('../fixtures/content.json', import.meta.url), 'utf8');
 
-test.beforeEach(async ({ page }) => {
+const localConfig = readFileSync(new URL('../../js/config.js', import.meta.url), 'utf8')
+  .replace(/neonAuthUrl: '[^']*'/, "neonAuthUrl: ''").replace(/dataApiUrl: '[^']*'/, "dataApiUrl: ''");
+
+test.beforeEach(async ({ page }, info) => {
   await page.route('**/data/content.json', r => r.fulfill({ body: fixture, contentType: 'application/json' }));
+  // Testes rodam em modo local; o teste de login usa a configuração real sem rede.
+  if (!info.title.includes('login')) await page.route('**/js/config.js', r => r.fulfill({ body: localConfig, contentType: 'text/javascript' }));
+  await page.route(/neon\.tech/, r => r.abort());
   page.on('pageerror', e => { throw e; });
 });
 
@@ -143,4 +149,13 @@ test('layout sem rolagem horizontal', async ({ page }) => {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow, r).toBeLessThanOrEqual(0);
   }
+});
+
+test('login configurado: sem sessão mostra o botão do Google e não quebra offline', async ({ page }) => {
+  await enterAs(page, 'Paulo');
+  await page.goto('/index.html#/perfis');
+  await expect(page.getByRole('button', { name: 'Entrar com Google' })).toBeVisible();
+  await page.goto('/index.html#/estudar?subject=s-ti-1');
+  await page.locator('.option').first().click();
+  await expect(page.locator('.feedback')).toBeVisible();
 });

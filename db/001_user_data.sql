@@ -116,6 +116,8 @@ begin
   end loop;
 end $$;
 
+grant usage on schema public to authenticated;
+
 -- RLS: cada usuário só enxerga e grava as próprias linhas.
 do $$
 declare t text;

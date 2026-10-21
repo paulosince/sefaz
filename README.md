@@ -53,9 +53,21 @@ npx playwright test                # ponta a ponta (usa tests/fixtures/content.j
 
 Sem configuração do Neon o app funciona em **modo local**: perfis Paulo e Cíntia neste aparelho, com backup manual.
 
+## Conteúdo do edital
+
+O conteúdo programático, as regras das provas e o cronograma vêm do PDF oficial:
+
+```sh
+pip install pdfplumber
+python3 scripts/build_edital.py edital.pdf > data/edital-2026.json   # extrai e confere
+node scripts/merge-content.mjs                                        # atualiza data/content.json
+```
+
+Ao publicar uma retificação, rode de novo com o PDF novo e registre a mudança em `changes`.
+
 ## Configurar o Neon (uma vez)
 
-1. No console do Neon, no projeto do Rumo à SEFAZ (separado do Viaggio): ativar **Neon Auth** com provedor Google e a **Data API**.
+1. Já feito no projeto `sefaz-estudos-2026`: **Neon Auth** (Google) e **Data API** ativados, tabelas `user_*` criadas e URLs em `js/config.js`. Para refazer em outro projeto:
 2. Rodar `db/001_user_data.sql` no SQL Editor (pode rodar de novo sem problema).
 3. Inspecionar as tabelas de conteúdo e criar as views de `db/002_content_contract.sql`:
    `DATABASE_URL=... node scripts/export-content.mjs --inspect`
